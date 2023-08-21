@@ -44,6 +44,11 @@ def collate(samples):
     graphs, labels = map(list, zip(*samples))
     return dgl.batch(graphs), torch.tensor(labels, dtype=torch.long)
 
+def collate_2(samples):
+    # samples are a list, [(graph1, graph2, label1), (graph3, graph4, label2), ...]
+    graphs1, graphs2, labels = map(list, zip(*samples))
+    return dgl.batch(graphs1), dgl.batch(graphs2), torch.tensor(labels, dtype=torch.long)
+
 def feature_classifier_sampled(datasetname, dataset_list, scenario):
     # featureset_train, featureset_test = evaluate.get_features(datasetname, algorithm_list)
     if scenario == "s1":
