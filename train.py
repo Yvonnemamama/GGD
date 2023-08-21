@@ -27,6 +27,7 @@ import numpy as np
 import sys
 import os
 import time
+import json
 # from graph-generation.GRAN.utils.dist_helper import compute_mmd
 from torch.autograd import Variable
 from dgl.nn.pytorch import SAGEConv
